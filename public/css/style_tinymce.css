@@ -1,0 +1,29 @@
+.preview{
+    background-color: antiquewhite;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.code-toolbar {
+    position: relative;
+    /* Assurez-vous que le div parent a une position relative pour positionner les éléments enfants de manière absolue par rapport à lui */
+}
+
+.code-toolbar .toolbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.code-toolbar .toolbar .toolbar-item {
+    display: inline-block; /* Assurez-vous que le div enfant est en mode "inline-block" pour positionner correctement son contenu */
+}
+
+.code-toolbar .toolbar .toolbar-item .copy-to-clipboard-button {
+    /* Styles personnalisés pour le bouton de copie, si nécessaire */
+    color: white;
+   border: solid 1px white;
+   background-color:coral;
+    padding: 5px;
+    margin: 15px;
+}

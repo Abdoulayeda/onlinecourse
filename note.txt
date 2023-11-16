@@ -1,0 +1,2 @@
+J'utilise  tinymce pour l'edition de texte
+https://prismjs.com/ pour ajouter par exemple un bouton copy a notre texte
