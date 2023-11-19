@@ -41,10 +41,17 @@ class ContentController extends Controller
      */
     public function store(Request $request, Content $content)
     {
-        $content->content = $request->content;
+        Content::firstOrCreate(
+            [
+                'content' => $request->content,
+                'lesson_id' => $content->lesson_id,
+                'slug' => 'text'.time().''.uniqid()
+            ]
+        );
+   /*      $content->content = $request->content;
         $content->lesson_id = $request->lesson_id;
         $content->slug = 'text'.time().''.uniqid();
-        $content->save();
+        $content->save(); */
 
         return redirect()->back();
     }

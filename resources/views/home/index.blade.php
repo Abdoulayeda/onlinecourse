@@ -2,10 +2,10 @@
 @section('content')
     @include('app.navbar')
 
-
+    @include('modals.create_teacher')
     <section class=" bg-white dark:bg-gray-900">
         <div class="flex flex-col  lg:flex-row lg:justify-between py-8   lg:mx-[15%] text-center lg:py-16 mx-8">
-            <div class="lg:flex-1  ">
+            <div class="lg:flex-1">
                 <h1
                     class="mb-4 text-start text-2xl  font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
                     Apprennez avec <br> des experts.
@@ -129,48 +129,27 @@
         </div>
     </div>
 
+
+
+
+
+
+
+
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
         <p class="text-[17px] lg:text-2xl font-serif font-bold mb-6"> Par Catégories</p>
-        <div class="flex flex-col  lg:flex-row lg:justify-between">
-            <a href="">
-                <img src="{{ asset('images/coding.png') }}" alt="" class="w-[200px] hover:scale-x-110  py-4">
-                <span class="text-xl font-serif font-bold my-8">Développement web</span>
-            </a>
-            <div>
-                <img src="{{ asset('images/mobile-development.png') }}" alt=""
-                    class=" py-4 hover:scale-x-110 w-[200px]">
-                <span class="text-xl font-serif font-bold">Développement mobile</span>
-            </div>
-            <div>
-                <img src="{{ asset('images/software-development.png') }}" alt=""
-                    class=" py-4 hover:scale-x-110 w-[200px]">
-                <span class="text-xl font-serif font-bold">Développement logiciel</span>
-            </div>
-            <div>
-                <img src="{{ asset('images/artificial-intelligence.png') }}" alt=""
-                    class="py-4 hover:scale-x-110 w-[200px]">
-                <span class="text-xl font-serif font-bold">Intelligence Artificiel</span>
-            </div>
-        </div>
-        <div class="flex flex-col  lg:flex-row lg:justify-between mt-8">
-            <div>
-                <img src="{{ asset('images/machine-learning.png') }}" alt=""
-                    class="w-[200px] hover:scale-x-110  py-4">
-                <span class="text-xl font-serif font-bold">Machine Learning</span>
-            </div>
-            <div>
-                <img src="{{ asset('images/data.png') }}" alt="" class="w-[200px] hover:scale-x-110 py-4">
-                <span class="text-xl font-serif font-bold">Big Data</span>
-            </div>
-            <div>
-                <img src="{{ asset('images/network.png') }}" alt="" class="w-[200px] hover:scale-x-110  py-4">
-                <span class="text-xl font-serif font-bold">Réseaux Informatique</span>
-            </div>
-            <div>
-                <img src="{{ asset('images/cyber-attack.png') }}" alt=""
-                    class="w-[200px] hover:scale-x-110  py-4">
-                <span class="text-xl font-serif font-bold">Sécurité Informatique</span>
-            </div>
+        <div class="grid md:grid-cols-4 gap-4 lg:justify-between  lg:py-16 mx-8">
+            @foreach ($categories as $categorie)
+                <div class="sm:px-2">
+                    <a href="">
+                        <span class="inline-block max-w-[150px] md:max-w-none">
+                            <img src="{{ asset('categories/' . $categorie->image) }}" alt=""
+                                class="w-full h-auto sm:w-auto hover:scale-x-110 py-4">
+                        </span>
+                        <span class="md:text-[18px] text-[15px] font-serif font-bold my-4">{{ $categorie->title }}</span>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
 
@@ -179,7 +158,7 @@
         <div class="owl-carousel owl-theme">
 
             @foreach ($number_buys as $course)
-                <div class="w-full max-w-sm bg-white  rounded-lg ">
+                <div class="w-full max-w-sm bg-white  rounded-lg">
                     <a href="#">
                         <img class="p-8 rounded-t-lg hover:scale-x-110" src="{{ asset('courses/' . $course->image) }}"
                             alt="{{ $course->image }}" style="height: 250px; width: 100%" />
@@ -215,12 +194,15 @@
                     Formez des gens dans le monde entier. <br>
                     Nous vous offrons tout les outils et moyens néccessaires.
                 </p>
-                <button class="justify-center my-4 w-[75%] bg-sky-900 py-2 text-white text-xl font-bold">Commencez
-                    maintenant</button>
-            </div>
-            <img src="{{ asset('images/teacher.png') }}" alt="" class="w-[300px]">
-        </div>
+                <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
+                    class="justify-center my-4 w-[75%] bg-sky-900 py-2 text-white text-xl font-bold" type="button">
+                    Commencez
+                    maintenant
+                </button>
 
+            </div>
+            <img src="{{ asset('images/vendeur.png') }}" alt="" class="w-[300px]">
+        </div>
     </div>
 
 

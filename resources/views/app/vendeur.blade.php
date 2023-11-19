@@ -125,7 +125,7 @@
         </div>
     </aside>
 
-    <div class=" sm:ml-64">
+    <div class="sm:ml-64">
         <div class=" border-2 border-gray-200 border-dashed rounded-lg ">
             @yield('content')
         </div>

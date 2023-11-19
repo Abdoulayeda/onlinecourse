@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Categorie;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
@@ -24,7 +25,8 @@ class CategorieController extends Controller
         
         $request->validate([
             'title' => 'required|unique:categories',
-            'image' => 'required|mimes:jpg,jpeg,png'
+            'image' => 'required|mimes:jpg,jpeg,png',
+            'slug' => 'string'
         ]); 
 
        $file = $request->file('image');
@@ -38,6 +40,7 @@ class CategorieController extends Controller
 
         $categorie->title = $request->title;
         $categorie->image = $imagename;
+        $categorie->slug = Str::random(12).''.time().''.Str::random(9).''.uniqid();
 
         $categorie->save();
 

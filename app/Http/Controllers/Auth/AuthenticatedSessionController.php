@@ -31,11 +31,13 @@ class AuthenticatedSessionController extends Controller
 
         $role = Auth::user()->role;
         if ($role == 'admin') {
-            return redirect('/admin');
+            return redirect()->route('admin.index');
         } else if($role == 'vendeur'){
             return redirect()->route('vendeur');
+        } else {
+            return  redirect('/');
         }
-        return  redirect('/');
+       
     }
 
     /**

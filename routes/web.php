@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Vendeur\ContentController;
+use App\Http\Controllers\Vendeur\VendeurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +33,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::post('veneur/store', [VendeurController::class, 'store'])->name('vendeur.store');
 
 require __DIR__.'/auth.php';
-
-Route::middleware('vendeur')->group(function(){
+/* 
+Route::middleware(['vendeur', 'web'])->group(function(){
 
     Route::get('/{slug}', [ContentController::class, 'preview'])->name('content.preview');
 });
-
+ */

@@ -9,7 +9,7 @@ use App\Http\Controllers\Vendeur\ChapterController;
 use App\Http\Controllers\Vendeur\ContentController;
 use App\Http\Controllers\Vendeur\VendeurController;
 
-Route::get('/', [VendeurController::class, 'index'])->name('vendeur');
+Route::get('/vendeur', [VendeurController::class, 'index'])->name('vendeur');
 
 Route::resource('courses', CourseController::class);
 
